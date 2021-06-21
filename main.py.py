@@ -1,6 +1,8 @@
-# Deep RL training for obstacle avoidance in AirSim
-# Author : Varun Pawar
-# E-mail : varunpwr897@gmail.com
+"""
+Deep RL training for obstacle avoidance in AirSim
+Author : Varun Pawar
+E-mail : varunpwr897@gmail.com
+"""
 
 import gym
 from env import DroneEnv
