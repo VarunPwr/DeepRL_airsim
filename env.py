@@ -6,10 +6,10 @@
 - Contact: subinlab.yang@gmail.com
 - Date: 2019.06.20.
 """
-
-# Edited by : Varun Pawar   
-# E-mail : varunpwr897@gmail.com
-
+"""
+ Edited by : Varun Pawar   
+ E-mail : varunpwr897@gmail.com
+"""
 # Contains necessary function to connect AirSim API and the DeepRL training function.
 # Simpler form of gymWrapper implementation.
 
@@ -288,18 +288,7 @@ class DroneEnv(object):
             if 'Obs' in Obj[0]:
                 Obj[1].position.y_val = random.uniform(-10,10)
                 self.client.simSetObjectPose(Obj[0], Obj[1], teleport = True)
-        # indxs = random.sample(range(0, 24), 24)#24 obstacles in the scene.
-        # count = 0
-        # for counter in range(24):
-        #     if counter == 12:
-        #         count +=1
-        #     # print(count)
-        #     Objs[indxs[counter]][1].position.x_val = math.cos(trans)*(15*(count//5) + -30 + random.uniform(-3,3) + state[0]) + math.sin(trans)*(15*(count%5) + -30 + random.uniform(-3,3) + state[1])
-                                                         
-        #     Objs[indxs[counter]][1].position.y_val = math.sin(trans)*(15*(count//5) + -30 + random.uniform(-3,3) + state[0]) - math.cos(trans)*(15*(count%5) + -30 + random.uniform(-3,3) + state[1]) 
-                                                        
-        #     self.client.simSetObjectPose(Objs[indxs[counter]][0], Objs[indxs[counter]][1], teleport = True)
-            # count +=1
+
         Objs = [[i, self.client.simGetObjectPose(i)] for i in obj for check in checks if check in i ]
         
         # This the list of objs 
@@ -319,18 +308,7 @@ class DroneEnv(object):
             Obj[1].position.y_val = max(min(Obj[1].position.y_val, 8),-5) 
             self.client.simSetObjectPose(Obj[0], Obj[1], teleport = True)
             count += 1
-        # indxs = random.sample(range(0, 24), 24)#24 obstacles in the scene.
-        # count = 0
-        # for counter in range(24):
-        #     if counter == 12:
-        #         count +=1
-        #     # print(count)
-        #     Objs[indxs[counter]][1].position.x_val = math.cos(trans)*(15*(count//5) + -30 + random.uniform(-3,3) + state[0]) + math.sin(trans)*(15*(count%5) + -30 + random.uniform(-3,3) + state[1])
-                                                         
-        #     Objs[indxs[counter]][1].position.y_val = math.sin(trans)*(15*(count//5) + -30 + random.uniform(-3,3) + state[0]) - math.cos(trans)*(15*(count%5) + -30 + random.uniform(-3,3) + state[1]) 
-                                                        
-        #     self.client.simSetObjectPose(Objs[indxs[counter]][0], Objs[indxs[counter]][1], teleport = True)
-            # count +=1
+
         Objs = [[i, self.client.simGetObjectPose(i)] for i in obj for check in checks if check in i ]
         
         # This the list of objs 
@@ -366,11 +344,4 @@ class DroneEnv(object):
         reward = min(1, (min(D) - 0.98)/(5 - 0.98))
 
         self.mindist = min(distL)
-        # reward = -100*math.exp(-(min(distL)/5)**2)
-        # if self.client.simGetCollisionInfo().has_collided:
-            # reward = reward*10
-        # if ((np.absolute(self.client.simGetVehiclePose().position.x_val)>30) or (np.absolute(self.client.simGetVehiclePose().position.y_val) > 30)):
-        #     reward  = 0
-        # print("Min dist:", self.mindist)
-        # print("Reward:",reward)
         return np.float(reward)
