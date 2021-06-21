@@ -26,7 +26,7 @@ python main.py --batch_size 32 --num_frames 10000000 --load_model --model_path \
 Add a different environment by adding environment class in [*main.py*](https://github.com/VarunPwr/DeepRL_airsim/blob/3675c4595e2c5180907351b3504e760e348e24b8/main.py.py#L57-L60)
 
 ### Modifying network
-The network could be modified in [*network.py*]()
+The network could be modified in [*network.py*](https://github.com/VarunPwr/DeepRL_airsim/blob/d2f156d9db58fadb286c88414b956d4760e96024/network.py)
 
 ## Acknowledgements
 
