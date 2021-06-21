@@ -1,0 +1,6 @@
+gym
+airsim
+opencv-python
+python-csv
+Pillow
+statistics
